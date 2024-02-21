@@ -1,0 +1,52 @@
+function extract_rescueList() {
+    # Extract fastq records from a pipe (-)
+    # Load a list of barcodes to rescue from undetermined
+    # parse R1.fq.gz and extract readID where the barcode is present in the list
+    # save the readID list to readID2rescue.txt
+    # Example usage with rescue_list.txt listing all barcodes to rescue
+    # zcat R1.fq.gz | extract_rescueList rescue_list.txt
+    bioawk -c fastx '
+        function bubble_sort(arr, n) {
+            for (i = 1; i < n; i++) {
+                for (j = 1; j <= n - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        temp = arr[j]
+                        arr[j] = arr[j + 1]
+                        arr[j + 1] = temp
+                    }
+                }
+            }
+        }
+        BEGIN {
+            while (getline < "'"$1"'") {
+                rescue[$0]++;
+            }
+            close("'"$1"'");
+            len=14
+        }
+        {
+            bc=substr($seq, 1, len)
+            umi=substr($seq, len+1, length($seq))
+            if (rescue[bc] > 0) {
+                barcodecount[bc]++
+                print $name"\t"bc"\t"umi > "readID_list.txt"
+            }
+        }
+        END {
+            # Create an array of keys (barcode substrings)
+            i = 1
+            for (key in barcodecount) {
+                keys[i++] = key
+            }
+
+            # Sort the keys using bubble sort
+            bubble_sort(keys, length(keys))
+
+            # Print sorted key-value pairs
+            for (i = 1; i <= length(keys); i++) {
+                key = keys[i]
+                value = barcodecount[key]
+                print key, value > "rescued_counts.txt"
+            }
+        }' -
+}

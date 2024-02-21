@@ -1,0 +1,24 @@
+function extract_rescuedR2() {
+    # Extract fastq records from a pipe (-)
+    # Load a list of readnames to rescue from R2.fq.gz
+    # parse R2.fq.gz and extract the reads with extra info in the comment
+    # save them to rescued_R2_reads.fastq
+    # Example usage with rescue_list.txt listing all barcodes to rescue
+    # zcat R2.fq.gz | extract_rescuedR2 readID_list.txt
+    bioawk -c fastx '
+        BEGIN {
+            while (getline < "'"$1"'") {
+                readname[$1]++
+                bc[$1]=$2
+                umi[$1]=$3
+            }
+            close("'"$1"'");
+        }
+        {
+            if (readname[$name] > 0) {
+                gsub(/\n$/, "", $comment)
+                newcomment=$comment"+"umi[$name]"+"bc[$name]
+                print "@"$name" "newcomment"\n"$seq"\n+\n"$qual > "rescued_R2_reads.fastq"
+            }
+        }' -
+}

@@ -1,0 +1,49 @@
+function BRBcountsFromlist() {
+    # Extract fastq records from a pipe (-)
+    # Load a list of read names to analyze ($1, e.g., read.list)
+    # Count occurrences for the first N bases (len variable below) of each listed read (potential barcode)
+    # At the end, print the full hash of barcode: count
+    # Example usage with read.list containing a list of read IDs
+    # zcat ${fq} | BRBcountsFromlist read.list
+    len=14
+    bioawk -c fastx -v len="${len}" '
+        function bubble_sort(arr, n) {
+            for (i = 1; i < n; i++) {
+                for (j = 1; j <= n - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        temp = arr[j]
+                        arr[j] = arr[j + 1]
+                        arr[j + 1] = temp
+                    }
+                }
+            }
+        }
+        BEGIN {
+            while (getline < "'"$1"'") {
+                id[$0]++;
+            }
+            close("'"$1"'");
+        }
+        {
+            if (id[$name] > 0) {
+                barcodecount[substr($seq, 1, len)]++;
+            }
+        }
+        END {
+            # Create an array of keys (barcode substrings)
+            i = 1
+            for (key in barcodecount) {
+                keys[i++] = key
+            }
+
+            # Sort the keys using bubble sort
+            bubble_sort(keys, length(keys))
+
+            # Print sorted key-value pairs
+            for (i = 1; i <= length(keys); i++) {
+                key = keys[i]
+                value = barcodecount[key]
+                print key, value > "undetermined_barcode_counts.txt"
+            }
+        }' -
+}

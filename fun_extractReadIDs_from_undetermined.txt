@@ -1,0 +1,7 @@
+function extractReadIDs_from_undetermined() {
+    # Extract read IDs of all undetermined reads
+    # save to undetermined_readIDs.txt
+    bioawk -c fastx '{
+        print $name > "undetermined_readIDs.txt"
+        }' undetermined.fastq.gz
+}
