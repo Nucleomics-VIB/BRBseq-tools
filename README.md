@@ -8,7 +8,7 @@
 
 ## Process BRB-Seq data obtained from the Aviti instrument
 
-### Plot distance between barcodes used in opne experiment to identify small-distance pairs
+### Plot distance between barcodes used in one experiment to identify small-distance pairs
 
 * BRB_distance2.R
 
@@ -20,11 +20,11 @@ The code can be tuned to color the distance in different ways, see script for de
 
 ![distance_gradient_plot_auto](pictures/distance_gradient_plot_auto.png)
 
-### Get all variant barcodes with diatance 1 from a user provided sequence
+### Get all variant barcodes with a distance of 1 from a user provided sequence
 
 * list_distance1.pl
 
-### Custom functions to rescue barcode data from an aviti run
+### Custom functions to rescue barcode data from an aviti BRB-Seq run
 
 One barcode was giving too few reads and we thought that the corresponding barcode sequence (provided by the customer in Exp4632_barcodes.txt) could have been the problem.
 
@@ -32,9 +32,9 @@ We processed the data as follows:
 
 ![BRBSeq_rescue](pictures/BRBSeq_rescue.png)
 
-The bioawk driven custom bash functions used for this analysis are listed next (txt files with name starting with 'fun')
+The bioawk driven custom bash functions used for this analysis are found in scripts/ (txt files with name starting with 'fun')
 
-After performing the analysis we found too few sequences associated with the top undeterined barcode to represent a missing barcode read group. It is therefore likely that the minor sample found in this run does not represent a wrong barcode in but rather a failed library prep for the corresponding sample due to input quality of the DNA or human error.
+After performing the analysis we found too few sequences associated with the top undetermined barcode to represent a missing barcode read group. It is therefore likely that the minor sample found in this run does not represent a wrong barcode in but rather a failed library prep for the corresponding sample due to input quality of the DNA or human error.
 The code is provided here to be recycled for other purpose.
 
 <hr>
