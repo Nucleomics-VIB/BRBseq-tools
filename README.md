@@ -12,6 +12,7 @@
 
 * BRB_distance2.R
 
+
 The code can be tuned to color the distance in different ways, see script for details
 
 ![distance_gradient_plot](pictures/distance_gradient_plot.png)
@@ -20,9 +21,13 @@ The code can be tuned to color the distance in different ways, see script for de
 
 ![distance_gradient_plot_auto](pictures/distance_gradient_plot_auto.png)
 
+As seen in the last plot, the minimal distance between non-identical barcodes is 4 (4 base substitutions) and should allow unambiguous demultiplexing.
+
 ### Get all variant barcodes with a distance of 1 from a user provided sequence
 
 * list_distance1.pl
+
+This utility takes one barcode as input and outputs it together with all single nucleotide variants (only substitutions). The output can be used to rescue reads from the undetermined fastq file after identifying them from the R1 file (done below)
 
 ### Custom functions to rescue barcode data from an aviti BRB-Seq run
 
