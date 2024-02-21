@@ -34,6 +34,8 @@ We processed the data as follows:
 
 The bioawk driven custom bash functions used for this analysis are listed next (txt files with name starting with 'fun')
 
+After performing the analysis we found too few sequences associated with the top undeterùined barcode to represent a missing barcode read group. It is therefore likely that the minor sample found in this run does not represent a wrong barcode in but rather a failed library prep for the corresponding sample due to input quality of the DNA or human error.
+
 <hr>
 
 ![Creative Commons License](http://i.creativecommons.org/l/by-sa/3.0/88x31.png?raw=true)
