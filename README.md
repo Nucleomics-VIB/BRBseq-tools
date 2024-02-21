@@ -6,7 +6,7 @@
 
 <h4>Please send comments and feedback to <a href="mailto:nucleomics.bioinformatics@vib.be">nucleomics.bioinformatics@vib.be</a></h4>
 
-Process BRB-Seq data obtained from the Aviti instrument
+## Process BRB-Seq data obtained from the Aviti instrument
 
 ### Plot distance between barcodes used in opne experiment to identify small-distance pairs
 
