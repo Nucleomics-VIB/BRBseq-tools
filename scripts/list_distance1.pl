@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 use Getopt::Long;
-use Text::Levenshtein::Flexible;
+#use Text::Levenshtein::Flexible;
 
 # script: list_distance1.pl
 # list all substitution variants with distance 1 from an input barcode
