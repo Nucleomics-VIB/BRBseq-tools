@@ -26,11 +26,29 @@ The code can be tuned to color the distance in different ways, see script for de
 
 ### Custom functions to rescue barcode data from an aviti BRB-Seq run
 
-One barcode was giving too few reads and we thought that the corresponding barcode sequence (provided by the customer in Exp4632_barcodes.txt) could have been the problem.
+One barcode (6607:AACAACCGAAGTAA) was giving too few reads and we thought that the corresponding barcode sequence (provided by the customer in Exp4632_barcodes.txt) could have been the problem.
 
 We processed the data as follows:
 
 ![BRBSeq_rescue](pictures/BRBSeq_rescue.png)
+
+The top barcode sequence identified from R1 sequences are listed next.
+
+```
+CAATGCATTTCACC  467885
+ACGGCCTTCAAAGT  205942
+ATTCCTTTAAGTTT  151154
+TCCAGCACCGGGCA  117733
+TGTCTCTTATACAC  88274
+CCTGTCTCTTATAC  87799
+GTCTCTTATACACA  79008
+ATACCTGTCTCTTA  78839
+CTCCTAACACCTGT  67332
+ATAATATCTGTCTC  63756
+```
+
+The top sequence CAATGCATTTCACC (N=467885) and its distance-1 relatives were used to list the corresponding R1 readIDs and recover all R2 reads with matching readID names.
+During rescue, the UMI and barcode were added to the extracted read headers before writing them to file (separated by '+').
 
 The bioawk driven custom bash functions used for this analysis are found in scripts/ (txt files with name starting with 'fun')
 
