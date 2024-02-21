@@ -92,11 +92,14 @@ The results of the final extraction were parsed to count the combinations of UMI
     468 GCTCCACCGGGAAT  CAATGCATTTCACC
 ```
 
-As seen a large majority of the rescued reads (460922/500025) have the same UMI GCTCCACCGGAAAT and the target barcode CAATGCATTTCACC.
+After performing the analysis we found too few sequences associated with the top undetermined barcode to represent a full missing barcode read group (other read groups returned 10M reads in average).
+
+Furthermore, as seen a large majority of the rescued reads (460922/500025) have the same UMI GCTCCACCGGAAAT and the target barcode CAATGCATTTCACC.
 
 Finding the same UMI in so many reads was not expected and suggests that these reads are artefacts and report as UMI some sequence originating from the sequencing adaptors.
 
-After performing the analysis we found too few sequences associated with the top undetermined barcode to represent a missing barcode read group. It is therefore likely that the minor sample found in this run does not represent a wrong barcode in but rather a failed library prep for the corresponding sample due to input quality of the DNA or human error.
+It is therefore likely that the minor sample found in this run does not represent a wrong barcode in but rather a failed library prep for the corresponding sample due to input quality of the DNA or human error.
+
 The code is provided here to be recycled for other purpose.
 
 <hr>
