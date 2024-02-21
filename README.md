@@ -73,7 +73,7 @@ The bioawk driven custom bash functions used for this analysis are found in scri
 
 * **extractReadIDs_from_undetermined**: list all undetermined readsIDs where the matched barcode is the top barcode found above or one of its distance-1 relatives (from **list_distance1.pl**)
 
-* **extract_rescuelist**: extract UMI and barcode info from the R1 reads with readID matching the list above and save this info to a new list
+* **extract_rescuelist**: extract UMI and barcode info from the R1 reads with readID matching the list above (500025 reads) and save this info to a new list
 
 * **extract_rescuedR2**: using the list above, extract the R2 reads and add the UMI and barcode info from the list to their header before writing them to a new fastq file
 
@@ -92,7 +92,7 @@ The results of the final extraction were parsed to count the combinations of UMI
     468 GCTCCACCGGGAAT  CAATGCATTTCACC
 ```
 
-As seen a large majority of the rescued reads have the same UMI GCTCCACCGGAAAT and the target barcode CAATGCATTTCACC.
+As seen a large majority of the rescued reads (460922/500025) have the same UMI GCTCCACCGGAAAT and the target barcode CAATGCATTTCACC.
 
 Finding the same UMI in so many reads was not expected and suggests that these reads are artefacts and report as UMI some sequence originating from the sequencing adaptors.
 
