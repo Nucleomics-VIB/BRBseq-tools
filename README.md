@@ -57,7 +57,7 @@ CTCCTAACACCTGT  67332
 ATAATATCTGTCTC  63756
 ```
 
-The readIDs of the top over-represented barcode CAATGCATTTCACC (N=467885) and its distance-1 relatives (obtained from ```list_distance1.pl CAATGCATTTCACC```) were used `together with R1 UMI information, to recover R2 reads with matching readID names.
+The readIDs of the top over-represented barcode CAATGCATTTCACC (N=467885) and its distance-1 relatives (obtained from ```list_distance1.pl CAATGCATTTCACC```) were used to extract UMI and barcode information from the R1 fastq file, and to recover R2 reads with matching readID names.
 During rescue, the UMI and barcode were added to the extracted read headers before writing them to file (separated by '+').
 
 The bioawk driven custom bash functions used for this analysis are found in scripts/ (txt files with name starting with 'fun')
