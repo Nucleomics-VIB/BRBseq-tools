@@ -73,9 +73,9 @@ The bioawk driven custom bash functions used for this analysis are found in scri
 
 * **extractReadIDs_from_undetermined**: list all undetermined readsIDs where the matched barcode is the top barcode found above or one of its distance-1 relatives (from **list_distance1.pl**)
 
-* **extract_rescuedR2**: using the list above, extract the R2 reads and add the UMI and barcode from R1 to their header before writing them to a new fastq file
+* **extract_rescuelist**: extract UMI and barcode info from the R1 reads with readID matching the list above and save this info to a new list
 
-* fun_extract_rescuelist.txt
+* **extract_rescuedR2**: using the list above, extract the R2 reads and add the UMI and barcode info from the list to their header before writing them to a new fastq file
 
 After performing the analysis we found too few sequences associated with the top undetermined barcode to represent a missing barcode read group. It is therefore likely that the minor sample found in this run does not represent a wrong barcode in but rather a failed library prep for the corresponding sample due to input quality of the DNA or human error.
 The code is provided here to be recycled for other purpose.
