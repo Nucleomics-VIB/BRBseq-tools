@@ -26,13 +26,13 @@ The code can be tuned to color the distance in different ways, see script for de
 
 ### Custom functions to rescue barcode data from an aviti run
 
-One barcode was giving too few reads and we thought that the corresponding barcode sequence (provided by the customer) could have been the problem.
+One barcode was giving too few reads and we thought that the corresponding barcode sequence (provided by the customer in Exp4632_barcodes.txt) could have been the problem.
 
 We processed the data as follows:
 
 ![BRBSeq_rescue](pictures/BRBSeq_rescue.png)
 
-The custom functions used for this analysis are listed next (names starting with 'fun')
+The bioawk driven custom bash functions used for this analysis are listed next (txt files with name starting with 'fun')
 
 <hr>
 
