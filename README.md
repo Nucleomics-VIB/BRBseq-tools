@@ -67,6 +67,16 @@ During rescue, the UMI and barcode were added to the extracted read headers befo
 
 The bioawk driven custom bash functions used for this analysis are found in scripts/ (txt files with name starting with 'fun')
 
+* **extractReadIDs_from_undetermined**: writes the full list of readIDs found in the undeterined fastq file
+
+* **BRBcountsFromlist**: lookup the R1 reads presents in the undeterined_list and identifies their barcodes (first 14 bases of R1). Count the number of reads with each found barcode and report the barcode-count pairs.
+
+* **extractReadIDs_from_undetermined**: list all undetermined readsIDs where the matched barcode is the top barcode found above or one of its distance-1 relatives (from **list_distance1.pl**)
+
+* **extract_rescuedR2**: using the list above, extract the R2 reads and add the UMI and barcode from R1 to their header before writing them to a new fastq file
+
+* fun_extract_rescuelist.txt
+
 After performing the analysis we found too few sequences associated with the top undetermined barcode to represent a missing barcode read group. It is therefore likely that the minor sample found in this run does not represent a wrong barcode in but rather a failed library prep for the corresponding sample due to input quality of the DNA or human error.
 The code is provided here to be recycled for other purpose.
 
