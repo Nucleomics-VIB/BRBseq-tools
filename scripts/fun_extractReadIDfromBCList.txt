@@ -1,0 +1,18 @@
+function extractReadIDfromBCList() {
+    # Extract readIDs from the complete id_barcodes_umi.txt
+    # based on the barcode list from list_distance1.pl
+    # cat id_barcodes_umi.txt | extractReadIDfromBCList rescue_list.txt
+    awk '
+        BEGIN {
+            while (getline < "'"$1"'") {
+                rescue[$0]++;
+            }
+            close("'"$1"'");
+            len=14
+        }
+        {
+            if (rescue[$2] > 0) {
+                print $1 > "readID_list.txt"
+            }
+        }' -
+}
