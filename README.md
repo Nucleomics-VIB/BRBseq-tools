@@ -102,7 +102,7 @@ Furthermore, as seen a large majority of the rescued reads (460922/500025) have 
 
 Finding the same UMI in so many reads was not expected and suggests that these reads are artefacts and report as UMI some sequence originating from the sequencing adaptors.
 
-It is therefore likely that the minor sample found in this run does not represent a wrong barcode sequence provided by the customer but rather a failed library prep for the corresponding sample due to input quality of the DNA or human error.
+It is therefore likely that the minor sample found in this run does not represent a wrong barcode sequence provided by the customer but rather a failed library prep for the corresponding sample due to input quality of the DNA or human error (the fastqc results for the rescued reads can be downloaded from the pictures folder).
 
 The code is provided here to be recycled for other purpose.
 
