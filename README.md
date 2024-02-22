@@ -8,6 +8,8 @@
 
 ## Process BRB-Seq data obtained from the Aviti instrument
 
+You will find below some description of scripts or analyses done with BRB-Seq data
+
 ### Plot distance between barcodes used in one experiment to identify small-distance pairs
 
 * BRB_distance2.R
