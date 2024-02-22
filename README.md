@@ -67,17 +67,17 @@ During rescue, the UMI and barcode were added to the extracted read headers befo
 
 The bioawk driven custom bash functions used for this analysis are found in scripts/ (txt files with name starting with 'fun')
 
-* **extractReadIDs_from_undetermined**: writes the full list of readIDs found in the undeterined fastq file
+* **extractReadIDs_from_undetermined**: writes the full list of readIDs found in the undetermined fastq file
 
 * use **[fastqsplitter](https://github.com/LUMC/fastqsplitter)** to split R1 reads in 8 chunks to be used in parallel
 
-* **getBarcodeUmiFromList.sh**: parse the R1 reads chunks and for each undetermined readID print out the readID, barcode and umi to a text file
+* **getBarcodeUmiFromList.sh**: parse the R1 reads chunks and for each undetermined readID print out the readID, barcode and umi to a text file (**id_barcodes_umi.txt**)
   
-* count unique barcodes and identify the top represented ones, take the top1 and produce its distance-1 variants with **list_distance1.pl** (rescue_list.txt)
+* parse id_barcodes_umi.txt and count unique barcodes. Identify the top represented barcode, produce its distance-1 variants with **list_distance1.pl** (**rescue_list.txt**)
 
-* **extract_rescuelist**: extract readID, UMI and barcode for all barcodes in the rescue_list.txt
+* **extract_rescuelist**: extract readID, UMI and barcode from **id_barcodes_umi.txt** for all barcodes in the **rescue_list.txt**
   
-* **extract_rescuedR2**: using the list above, extract the R2 reads and add the UMI and barcode info from the list to their header before writing them to a new fastq file
+* **extract_rescuedR2**: using **rescue_list.txt**, parse the R2 reads, identify readIDs from the list and add the UMI and barcode to their header before writing them to a new fastq file
 
 The results of the final extraction were parsed to count the combinations of UMI and barcodes shown below (top-10)
 
