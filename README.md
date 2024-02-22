@@ -69,12 +69,14 @@ The bioawk driven custom bash functions used for this analysis are found in scri
 
 * **extractReadIDs_from_undetermined**: writes the full list of readIDs found in the undeterined fastq file
 
-* **BRBcountsFromlist**: lookup the R1 reads presents in the undeterined_list and identifies their barcodes (first 14 bases of R1). Count the number of reads with each found barcode and report the barcode-count pairs.
+* use **[fastqsplitter](https://github.com/LUMC/fastqsplitter)** to split R1 reads in 8 chunks to be used in parallel
 
-* **extractReadIDs_from_undetermined**: list all undetermined readsIDs where the matched barcode is the top barcode found above or one of its distance-1 relatives (from **list_distance1.pl**)
+* **getBarcodeUmiFromList.sh**: parse the R1 reads chunks and for each undetermined readID print out the readID, barcode and umi to a text file
+  
+* count unique barcodes and identify the top represented ones, take the top1 and produce its distance-1 variants with **list_distance1.pl** (rescue_list.txt)
 
-* **extract_rescuelist**: extract UMI and barcode info from the R1 reads with readID matching the list above (500025 reads) and save this info to a new list
-
+* **extract_rescuelist**: extract readID, UMI and barcode for all barcodes in the rescue_list.txt
+  
 * **extract_rescuedR2**: using the list above, extract the R2 reads and add the UMI and barcode info from the list to their header before writing them to a new fastq file
 
 The results of the final extraction were parsed to count the combinations of UMI and barcodes shown below (top-10)
