@@ -69,7 +69,7 @@ The bioawk driven custom bash functions used for this analysis are found in scri
 
 * **extractReadIDs_from_undetermined**: writes the full list of readIDs found in the undetermined fastq file
 
-* use **[fastqsplitter](https://github.com/LUMC/fastqsplitter)** to split R1 reads in 8 chunks to be used in parallel
+* use **[fastqsplitter](https://github.com/LUMC/fastqsplitter)** to split R1 reads in 8 chunks to be used in parallel (**fastqsplit.sh**)
 
 * **getBarcodeUmiFromList.sh**: parse the R1 reads chunks and for each undetermined readID print out the readID, barcode and umi to a text file (**id_barcodes_umi.txt**)
   
