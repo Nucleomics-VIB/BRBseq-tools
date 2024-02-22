@@ -12,7 +12,7 @@ function extractReadIDfromBCList() {
         }
         {
             if (rescue[$2] > 0) {
-                print $1 > "readID_list.txt"
+                print $0 > "readID_list.txt"
             }
         }' -
 }
