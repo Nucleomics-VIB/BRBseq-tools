@@ -29,7 +29,7 @@ As seen in the last plot, the minimal distance between non-identical barcodes is
 
 This utility takes one barcode as input and outputs it together with all single nucleotide variants (only substitutions). The output can be used to rescue reads from the undetermined fastq file after identifying them from the R1 file (done below)
 
-### Custom functions to rescue barcode data from an aviti BRB-Seq run
+### Case-Study: Rescue barcode data from an aviti BRB-Seq run
 
 A BRB-Seq run ended up with one sample having significantly less reads than the others
 
