@@ -25,6 +25,19 @@ The code can be tuned to color the distance in different ways, see script for de
 
 As seen in the last plot, the minimal distance between non-identical barcodes is 4 (4 base substitutions) and should allow unambiguous demultiplexing.
 
+|bc1_lbl               |bc2_lbl                 | distance|
+|:---------------------|:-----------------------|--------:|
+|6592 - ACGAGCAGATGCAG |6609 - ACGCAGCGAGCAGA   |        4|
+|6608 - AACTAGTATCCGGA |6655 - AACCTGCTATCCGG   |        4|
+|6607 - AACAACCGAAGTAA |6664 - ACCAATCCGTATAA   |        4|
+|6650 - ACGCTCCTAACGGC |6682 - ATGCTGCAACGGCA   |        4|
+|6644 - CTCTGGCTTGCAGG |6783 - TCTGTCTATGCAGC   |        4|
+|6647 - TCGATTGGTAATGG |6791 - TCGATGCTATATGA   |        4|
+|6597 - CTGATATGCAGCGA |ED1-10 - CTGCTCATGAGAGA |        4|
+|6613 - ATAATATTGCCTCC |ED1-11 - ATGAATGTTGCCAC |        4|
+
+![distance_4_plot](pictures/distance_4_plot.png)
+
 ### Get all variant barcodes with a distance of 1 from a user provided sequence
 
 * list_distance1.pl
