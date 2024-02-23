@@ -3,6 +3,7 @@ library("ggplot2")
 #library("dplyr")
 #library("tidyr")
 library("tidyverse")
+library("knitr")
 
 barcodes <- read.csv("~/Downloads/Exp4632_barcodes.txt", sep="")
 
@@ -67,3 +68,25 @@ ggplot(upper_triangular_values, aes(x = rowname, y = colname, fill = lv_distance
   theme_minimal() +
   labs(title = "Lower Triangular Elements Heatmap", x = "Columns", y = "Rows")
 null <- dev.off()
+
+# show distance-4
+dist4 <- subset(upper_triangular_values, value==4)
+colnames(dist4) <- c("bc1","bc2","distance")
+
+dist4$bc1_lbl <- paste0(dist4$bc1, " - ", barcodes$B1[match(dist4$bc1, barcodes$Name)], sep=" ")
+dist4$bc2_lbl <- paste0(dist4$bc2, " - ", barcodes$B1[match(dist4$bc2, barcodes$Name)], sep=" ")
+
+
+# Plot using the modified data
+png("distance_4_plot.png")
+ggplot(dist4, aes(x = bc1_lbl, y = bc2_lbl, fill = distance)) +
+  geom_point(shape = 19, size = 5) +  # Display circles
+  theme_minimal() +
+  labs(title = "Barcode pairs with distance:4", x = NULL, y = NULL) +
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+null <- dev.off()
+
+# Print the data frame as a table
+kable(dist4[,c(4,5,3)], format = "pipe", row.names = FALSE)
+
