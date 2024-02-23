@@ -76,7 +76,6 @@ colnames(dist4) <- c("bc1","bc2","distance")
 dist4$bc1_lbl <- paste0(dist4$bc1, " - ", barcodes$B1[match(dist4$bc1, barcodes$Name)], sep=" ")
 dist4$bc2_lbl <- paste0(dist4$bc2, " - ", barcodes$B1[match(dist4$bc2, barcodes$Name)], sep=" ")
 
-
 # Plot using the modified data
 png("distance_4_plot.png")
 ggplot(dist4, aes(x = bc1_lbl, y = bc2_lbl, fill = distance)) +
